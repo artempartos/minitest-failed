@@ -37,10 +37,10 @@ or short alias
 
 ## Inspired by projects:
 
-https://github.com/fnando/minitest-utils
-https://github.com/grosser/single_test
-https://github.com/gma/tconsole
-https://github.com/qrush/m
+* https://github.com/fnando/minitest-utils
+* https://github.com/grosser/single_test
+* https://github.com/gma/tconsole
+* https://github.com/qrush/m
 
 ## Development
 

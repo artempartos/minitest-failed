@@ -15,20 +15,16 @@ module Minitest
 
       private
 
-      def indent(text)
-        text.gsub(/^/, '      ')
-      end
-
       def display_replay_command(result)
         location = find_test_file(result)
         return if location.empty?
 
-        %[rake TEST=#{location} TESTOPTS="--name=#{result.name}"]
+        %(rake TEST=#{location} TESTOPTS="--name=#{result.name}")
       end
 
       def find_test_file(result)
         filter_backtrace(result.failure.backtrace)
-          .find {|line| line.match(%r((test|spec)/.*?_(test|spec).rb)) }
+          .find { |line| line.match(%r((test|spec)/.*?_(test|spec).rb)) }
           .to_s
           .gsub(/:\d+.*?$/, '')
       end
@@ -36,7 +32,7 @@ module Minitest
       def backtrace(backtrace)
         backtrace = filter_backtrace(backtrace).map {|line| location(line, true) }
         return if backtrace.empty?
-        indent(backtrace.join("\n")).gsub(/^(\s+)/, "\\1# ")
+        backtrace.join("\n").gsub(/^(\s+)/, "\\1# ")
       end
 
       def location(location, include_line_number = false)
